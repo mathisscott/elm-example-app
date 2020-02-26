@@ -1,12 +1,13 @@
 module Pages.List exposing (Model, Msg, init, subscriptions, update, view)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, href)
+import Html.Attributes exposing (attribute, class, href)
 import Http
 import Json.Decode as Decode
 import Player exposing (Player)
 import Routes
 import Shared exposing (..)
+import Utils.ClarityComponents exposing (clrButton, clrIcon)
 
 
 type alias Model =
@@ -109,4 +110,4 @@ editBtn player =
         [ class "btn regular"
         , href path
         ]
-        [ i [ class "fa fa-edit mr-1" ] [], text "Edit" ]
+        [ clrIcon [ attribute "shape" "pencil" ] [], text "Edit" ]

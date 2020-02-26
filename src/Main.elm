@@ -3,12 +3,13 @@ module Main exposing (init, main, subscriptions)
 import Browser exposing (UrlRequest)
 import Browser.Navigation as Nav exposing (Key)
 import Html exposing (Html, a, div, section, text)
-import Html.Attributes exposing (class, href)
+import Html.Attributes exposing (attribute, class, href)
 import Pages.Edit as Edit
 import Pages.List as List
 import Routes exposing (Route)
 import Shared exposing (..)
 import Url exposing (Url)
+import Utils.ClarityComponents exposing (clrButton)
 
 
 type alias Model =
@@ -183,14 +184,16 @@ nav model =
         links =
             case model.route of
                 Routes.PlayersRoute ->
-                    [ text "Players" ]
+                    [ text "Players", clrButton [ attribute "status" "success" ] [ text "OHAI" ] ]
 
                 Routes.PlayerRoute _ ->
                     [ linkToList
+                    , clrButton [] [ text "OHAI" ]
                     ]
 
                 Routes.NotFoundRoute ->
                     [ linkToList
+                    , clrButton [] [ text "OHAI" ]
                     ]
 
         linkToList =
